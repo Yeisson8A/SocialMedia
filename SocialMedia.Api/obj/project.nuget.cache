@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "lDIPmfokwdRQGP9Y4Uq+2kIOeX/uQj/t+7iXEZX9QQP4HnO4MHVQ2Pw0jKl28/rYiUUmtfRrgNrWu8BCn80vRQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\yeisson.ochoa\\source\\repos\\SocialMedia\\SocialMedia.Api\\SocialMedia.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\yeisson.ochoa\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\yeisson.ochoa\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\yeisson.ochoa\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\yeisson.ochoa\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\yeisson.ochoa\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\yeisson.ochoa\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

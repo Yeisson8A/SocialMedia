@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\yeisson.ochoa\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\yeisson.ochoa\\.nuget\\packages"
+    ]
+  }
+}

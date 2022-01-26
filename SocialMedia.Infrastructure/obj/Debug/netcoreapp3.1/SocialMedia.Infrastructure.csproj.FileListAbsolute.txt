@@ -1,0 +1,13 @@
+C:\Users\yeisson.ochoa\source\repos\SocialMedia\SocialMedia.Infrastructure\bin\Debug\netcoreapp3.1\SocialMedia.Infrastructure.deps.json
+C:\Users\yeisson.ochoa\source\repos\SocialMedia\SocialMedia.Infrastructure\bin\Debug\netcoreapp3.1\SocialMedia.Infrastructure.dll
+C:\Users\yeisson.ochoa\source\repos\SocialMedia\SocialMedia.Infrastructure\bin\Debug\netcoreapp3.1\SocialMedia.Infrastructure.pdb
+C:\Users\yeisson.ochoa\source\repos\SocialMedia\SocialMedia.Infrastructure\bin\Debug\netcoreapp3.1\SocialMedia.Core.dll
+C:\Users\yeisson.ochoa\source\repos\SocialMedia\SocialMedia.Infrastructure\bin\Debug\netcoreapp3.1\SocialMedia.Core.pdb
+C:\Users\yeisson.ochoa\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\netcoreapp3.1\SocialMedia.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\yeisson.ochoa\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\netcoreapp3.1\SocialMedia.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yeisson.ochoa\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\netcoreapp3.1\SocialMedia.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\yeisson.ochoa\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\netcoreapp3.1\SocialMedia.Infrastructure.AssemblyInfo.cs
+C:\Users\yeisson.ochoa\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\netcoreapp3.1\SocialMedia.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\yeisson.ochoa\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\netcoreapp3.1\SocialMedia.Infrastructure.csproj.CopyComplete
+C:\Users\yeisson.ochoa\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\netcoreapp3.1\SocialMedia.Infrastructure.dll
+C:\Users\yeisson.ochoa\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\netcoreapp3.1\SocialMedia.Infrastructure.pdb
