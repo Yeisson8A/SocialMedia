@@ -1,14 +1,16 @@
 ﻿using SocialMedia.Core.Entities;
+using SocialMedia.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SocialMedia.Infrastructure.Repositories
 {
-    public class PostRepository
+    public class PostRepository : IPostRepository
     {
-        public IEnumerable<Post> GetPosts()
+        /*public IEnumerable<Post> GetPosts()
         {
             var posts = Enumerable.Range(1, 10).Select(x => new Post
             {
@@ -20,6 +22,10 @@ namespace SocialMedia.Infrastructure.Repositories
             });
 
             return posts;
+        }*/
+        public Task<IEnumerable<Post>> GetPosts()
+        {
+            throw new NotImplementedException();
         }
     }
 }
