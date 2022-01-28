@@ -1,5 +1,7 @@
-﻿using SocialMedia.Core.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using SocialMedia.Core.Entities;
 using SocialMedia.Core.Interfaces;
+using SocialMedia.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,22 +12,41 @@ namespace SocialMedia.Infrastructure.Repositories
 {
     public class PostRepository : IPostRepository
     {
-        /*public IEnumerable<Post> GetPosts()
-        {
-            var posts = Enumerable.Range(1, 10).Select(x => new Post
-            {
-                PostId = x,
-                UserId = x * 2,
-                Date = DateTime.Now,
-                Description = $"Description {x}",
-                Image = ""
-            });
+        private readonly SocialMediaContext _context;
 
-            return posts;
-        }*/
-        public Task<IEnumerable<Post>> GetPosts()
+        public PostRepository(SocialMediaContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+
+        public async Task<Post> GetPost(int id)
+        {
+            //Obtener un post especifico según Id
+            var post = await _context.Posts.FirstOrDefaultAsync(x => x.PostId == id);
+            return post;
+        }
+
+        public async Task<IEnumerable<Post>> GetPosts()
+        {
+            //Obtener listado de todas las publicaciones
+            var posts = await _context.Posts.ToListAsync();
+            //Devolver resultado obtenido
+            return posts;
+        }
+
+        public async Task<bool> InsertPost(Post post)
+        {
+            //Agregar nuevo post al contexto de la base de datos
+            _context.Posts.Add(post);
+            //Guardar cambios en la base de datos
+            var result = await _context.SaveChangesAsync();
+
+            if (result > 0)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

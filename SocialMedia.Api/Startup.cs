@@ -1,12 +1,15 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using SocialMedia.Core.Interfaces;
+using SocialMedia.Infrastructure.Data;
 using SocialMedia.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
@@ -35,6 +38,17 @@ namespace SocialMedia.Api
             });
             //Dependencias
             services.AddTransient<IPostRepository, PostRepository>();
+            //Conexión a la base de datos
+            services.AddDbContext<SocialMediaContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("SocialMedia"))
+            );
+            //AutoMapper
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            //Validaciones Fluent
+            services.AddMvc().AddFluentValidation(options =>
+            {
+                options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
+            });
             //Controladores
             services.AddControllers();
         }

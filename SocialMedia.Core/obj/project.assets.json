@@ -8,24 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Yeisson\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\yeisson.ochoa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yeisson\\source\\repos\\SocialMedia\\SocialMedia.Core\\SocialMedia.Core.csproj",
+      "projectUniqueName": "C:\\Users\\yeisson.ochoa\\source\\repos\\SocialMedia\\SocialMedia.Core\\SocialMedia.Core.csproj",
       "projectName": "SocialMedia.Core",
-      "projectPath": "C:\\Users\\Yeisson\\source\\repos\\SocialMedia\\SocialMedia.Core\\SocialMedia.Core.csproj",
-      "packagesPath": "C:\\Users\\Yeisson\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yeisson\\source\\repos\\SocialMedia\\SocialMedia.Core\\obj\\",
+      "projectPath": "C:\\Users\\yeisson.ochoa\\source\\repos\\SocialMedia\\SocialMedia.Core\\SocialMedia.Core.csproj",
+      "packagesPath": "C:\\Users\\yeisson.ochoa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\yeisson.ochoa\\source\\repos\\SocialMedia\\SocialMedia.Core\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Yeisson\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\yeisson.ochoa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

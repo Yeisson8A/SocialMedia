@@ -10,5 +10,9 @@ namespace SocialMedia.Core.Interfaces
     {
         //Método para obtener listado de todos los posts
         Task<IEnumerable<Post>> GetPosts();
+        //Método para obtener un post especifico por Id
+        Task<Post> GetPost(int id);
+        //Método para insertar un nuevo post
+        Task<bool> InsertPost(Post post);
     }
 }
