@@ -14,9 +14,9 @@ namespace SocialMedia.Infrastructure.Data.Configuratios
             //Nombre de la tabla en la base de datos
             builder.ToTable("Comentario");
             //Clave primaria de la tabla
-            builder.HasKey(e => e.CommentId);
+            builder.HasKey(e => e.Id);
             //Columna Id Comentario
-            builder.Property(e => e.CommentId)
+            builder.Property(e => e.Id)
                 .HasColumnName("IdComentario")
                 .ValueGeneratedNever();
             //Columna Id Publicación

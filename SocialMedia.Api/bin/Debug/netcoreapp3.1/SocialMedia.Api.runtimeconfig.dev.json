@@ -1,8 +1,9 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\yeisson.ochoa\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\yeisson.ochoa\\.nuget\\packages"
+      "C:\\Users\\Yeisson\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Yeisson\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ]
   }
 }

@@ -14,9 +14,9 @@ namespace SocialMedia.Infrastructure.Data.Configuratios
             //Nombre de la tabla en la base de datos
             builder.ToTable("Usuario");
             //Clave primaria de la tabla
-            builder.HasKey(e => e.UserId);
+            builder.HasKey(e => e.Id);
             //Columna Id Usuario
-            builder.Property(e => e.UserId)
+            builder.Property(e => e.Id)
                 .HasColumnName("IdUsuario");
             //Columna Nombres
             builder.Property(e => e.FirstName)

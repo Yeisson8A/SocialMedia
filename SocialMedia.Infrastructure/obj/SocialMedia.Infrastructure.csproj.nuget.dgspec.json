@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yeisson.ochoa\\source\\repos\\SocialMedia\\SocialMedia.Infrastructure\\SocialMedia.Infrastructure.csproj": {}
+    "C:\\Users\\Yeisson\\source\\repos\\SocialMedia\\SocialMedia.Infrastructure\\SocialMedia.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yeisson.ochoa\\source\\repos\\SocialMedia\\SocialMedia.Core\\SocialMedia.Core.csproj": {
+    "C:\\Users\\Yeisson\\source\\repos\\SocialMedia\\SocialMedia.Core\\SocialMedia.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yeisson.ochoa\\source\\repos\\SocialMedia\\SocialMedia.Core\\SocialMedia.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Yeisson\\source\\repos\\SocialMedia\\SocialMedia.Core\\SocialMedia.Core.csproj",
         "projectName": "SocialMedia.Core",
-        "projectPath": "C:\\Users\\yeisson.ochoa\\source\\repos\\SocialMedia\\SocialMedia.Core\\SocialMedia.Core.csproj",
-        "packagesPath": "C:\\Users\\yeisson.ochoa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yeisson.ochoa\\source\\repos\\SocialMedia\\SocialMedia.Core\\obj\\",
+        "projectPath": "C:\\Users\\Yeisson\\source\\repos\\SocialMedia\\SocialMedia.Core\\SocialMedia.Core.csproj",
+        "packagesPath": "C:\\Users\\Yeisson\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Yeisson\\source\\repos\\SocialMedia\\SocialMedia.Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\yeisson.ochoa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Yeisson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,17 +62,21 @@
         }
       }
     },
-    "C:\\Users\\yeisson.ochoa\\source\\repos\\SocialMedia\\SocialMedia.Infrastructure\\SocialMedia.Infrastructure.csproj": {
+    "C:\\Users\\Yeisson\\source\\repos\\SocialMedia\\SocialMedia.Infrastructure\\SocialMedia.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yeisson.ochoa\\source\\repos\\SocialMedia\\SocialMedia.Infrastructure\\SocialMedia.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Yeisson\\source\\repos\\SocialMedia\\SocialMedia.Infrastructure\\SocialMedia.Infrastructure.csproj",
         "projectName": "SocialMedia.Infrastructure",
-        "projectPath": "C:\\Users\\yeisson.ochoa\\source\\repos\\SocialMedia\\SocialMedia.Infrastructure\\SocialMedia.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\yeisson.ochoa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yeisson.ochoa\\source\\repos\\SocialMedia\\SocialMedia.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Yeisson\\source\\repos\\SocialMedia\\SocialMedia.Infrastructure\\SocialMedia.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Yeisson\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Yeisson\\source\\repos\\SocialMedia\\SocialMedia.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\yeisson.ochoa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Yeisson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,8 +90,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\yeisson.ochoa\\source\\repos\\SocialMedia\\SocialMedia.Core\\SocialMedia.Core.csproj": {
-                "projectPath": "C:\\Users\\yeisson.ochoa\\source\\repos\\SocialMedia\\SocialMedia.Core\\SocialMedia.Core.csproj"
+              "C:\\Users\\Yeisson\\source\\repos\\SocialMedia\\SocialMedia.Core\\SocialMedia.Core.csproj": {
+                "projectPath": "C:\\Users\\Yeisson\\source\\repos\\SocialMedia\\SocialMedia.Core\\SocialMedia.Core.csproj"
               }
             }
           }
