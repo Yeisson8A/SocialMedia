@@ -6,17 +6,9 @@ using System.Threading.Tasks;
 
 namespace SocialMedia.Core.Interfaces
 {
-    public interface IPostRepository
+    public interface IPostRepository : IRepository<Post>
     {
-        //Método para obtener listado de todos los posts
-        Task<IEnumerable<Post>> GetPosts();
-        //Método para obtener un post especifico por Id
-        Task<Post> GetPost(int id);
-        //Método para insertar un nuevo post
-        Task<bool> InsertPost(Post post);
-        //Método para actualizar un post existente
-        Task<bool> EditPost(Post post);
-        //Método para eliminar un post existente
-        Task<bool> DeletePost(int id);
+        //Método para obtener listado de todos los posts según un usuario
+        Task<IEnumerable<Post>> GetPostsByUser(int userId);
     }
 }

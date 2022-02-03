@@ -4,6 +4,7 @@ using SocialMedia.Core.Interfaces;
 using SocialMedia.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,8 +12,9 @@ namespace SocialMedia.Infrastructure.Repositories
 {
     public class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {
+        //Con protected la propiedad es visible por la clase BaseRepository y las clases que hereden de ella
         private readonly SocialMediaContext _context;
-        private DbSet<T> _entities;
+        protected DbSet<T> _entities;
 
         public BaseRepository(SocialMediaContext context)
         {
@@ -21,39 +23,39 @@ namespace SocialMedia.Infrastructure.Repositories
             _entities = _context.Set<T>();
         }
 
-        public async Task<bool> Add(T entity)
+        public async Task Add(T entity)
         {
             //Agregar nuevo objeto de dicha entidad al contexto de la base de datos
-            _entities.Add(entity);
+            await _entities.AddAsync(entity);
             //Guardar cambios en la base de datos
-            var result = await _context.SaveChangesAsync();
-            return result > 0;
+            //var result = await _context.SaveChangesAsync();
+            //return result > 0;
         }
 
-        public async Task<bool> Delete(int id)
+        public async Task Delete(int id)
         {
             //Obtener información del objeto a actualizar para dicha entidad
             var entity = await GetById(id);
             //Eliminar entidad del contexto de la base de datos
             _entities.Remove(entity);
             //Guardar cambios en la base de datos
-            var result = await _context.SaveChangesAsync();
-            return result > 0;
+            //var result = await _context.SaveChangesAsync();
+            //return result > 0;
         }
 
-        public async Task<bool> Edit(T entity)
+        public void Edit(T entity)
         {
             //Actualizar dicha entidad con la información recibida
             _entities.Update(entity);
             //Guardar cambios en la base de datos
-            var result = await _context.SaveChangesAsync();
-            return result > 0;
+            //var result = await _context.SaveChangesAsync();
+            //return result > 0;
         }
 
-        public async Task<IEnumerable<T>> GetAll()
+        public IEnumerable<T> GetAll()
         {
             //Obtener listado de todos los objetos de dicha entidad
-            return await _entities.ToListAsync();
+            return _entities.AsEnumerable();
         }
 
         public async Task<T> GetById(int id)

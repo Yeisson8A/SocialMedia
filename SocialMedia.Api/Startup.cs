@@ -9,6 +9,7 @@ using Microsoft.OpenApi.Models;
 using SocialMedia.Core.Interfaces;
 using SocialMedia.Core.Services;
 using SocialMedia.Infrastructure.Data;
+using SocialMedia.Infrastructure.Filters;
 using SocialMedia.Infrastructure.Repositories;
 using System;
 
@@ -51,7 +52,11 @@ namespace SocialMedia.Api
                 options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
             });
             //Controladores
-            services.AddControllers();
+            services.AddControllers(options =>
+            {
+                //Agregar filtro para el manejo global de las excepciones de negocio
+                options.Filters.Add<GlobalExceptionFilter>();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

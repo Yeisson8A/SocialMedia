@@ -1,7 +1,9 @@
 ﻿using SocialMedia.Core.Entities;
+using SocialMedia.Core.Exceptions;
 using SocialMedia.Core.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SocialMedia.Core.Services
@@ -22,13 +24,19 @@ namespace SocialMedia.Core.Services
         public async Task<bool> DeletePost(int id)
         {
             //Llamar al repositorio de post
-            return await _unitOfWork.PostRepository.Delete(id);
+            await _unitOfWork.PostRepository.Delete(id);
+            //Llamar a UnitOfWork para guardar los cambios en la base de datos
+            await _unitOfWork.SaveChangesAsync();
+            return true;
         }
 
         public async Task<bool> EditPost(Post post)
         {
             //Llamar al repositorio de post
-            return await _unitOfWork.PostRepository.Edit(post);
+            _unitOfWork.PostRepository.Edit(post);
+            //Llamar a UnitOfWork para guardar los cambios en la base de datos
+            await _unitOfWork.SaveChangesAsync();
+            return true;
         }
 
         public async Task<Post> GetPost(int id)
@@ -37,10 +45,10 @@ namespace SocialMedia.Core.Services
             return await _unitOfWork.PostRepository.GetById(id);
         }
 
-        public async Task<IEnumerable<Post>> GetPosts()
+        public IEnumerable<Post> GetPosts()
         {
             //Llamar al repositorio de post
-            return await _unitOfWork.PostRepository.GetAll();
+            return _unitOfWork.PostRepository.GetAll();
         }
 
         public async Task<bool> InsertPost(Post post)
@@ -51,17 +59,36 @@ namespace SocialMedia.Core.Services
             //Validar si encontró el usuario indicado
             if (user == null)
             {
-                throw new Exception("El usuario no existe");
+                throw new BusinessException("El usuario no existe");
+            }
+
+            //Llamar al repositorio de post para obtener listado según un usuario especifico
+            var userPosts = await _unitOfWork.PostRepository.GetPostsByUser(post.UserId);
+
+            //Validar la cantidad de post del usuario
+            if (userPosts.Count() < 10)
+            {
+                //Ordenar los posts del usuario por fecha de forma descendente y obtener el último post
+                var lastPost = userPosts.OrderByDescending(x => x.Date).FirstOrDefault();
+
+                //Validar que la diferencia en días desde la última publicación sea mayor o igual a siete días
+                if ((DateTime.Now - lastPost.Date).TotalDays < 7)
+                {
+                    throw new BusinessException("No puedes publicar");
+                }
             }
 
             //Validar si la descripción del post tiene contenido no válido
             if (post.Description.Contains("Sexo"))
             {
-                throw new Exception("Contenido no permitido");
+                throw new BusinessException("Contenido no permitido");
             }
 
             //Llamar al repositorio de post
-            return await _unitOfWork.PostRepository.Add(post);
+            await _unitOfWork.PostRepository.Add(post);
+            //Llamar a UnitOfWork para guardar los cambios en la base de datos
+            await _unitOfWork.SaveChangesAsync();
+            return true;
         }
     }
 }

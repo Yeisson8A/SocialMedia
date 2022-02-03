@@ -7,7 +7,7 @@ namespace SocialMedia.Core.Interfaces
     public interface IUnitOfWork : IDisposable
     {
         //Repositorio para la entidad post
-        IRepository<Post> PostRepository { get; }
+        IPostRepository PostRepository { get; }
         //Repositorio para la entidad usuario
         IRepository<User> UserRepository { get; }
         //Repositorio para la entidad Comentario

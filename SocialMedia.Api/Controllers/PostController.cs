@@ -28,10 +28,10 @@ namespace SocialMedia.Api.Controllers
 
         //Método GET
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PostDto>>> GetPosts()
+        public ActionResult<IEnumerable<PostDto>> GetPosts()
         {
             //Obtener listado de posts
-            var posts = await _postService.GetPosts();
+            var posts = _postService.GetPosts();
             //Hacer mapeo de entidad Post a PostDto
             var postsDto = _mapper.Map<IEnumerable<PostDto>>(posts);
             //Adicionar respuesta a objeto a devolver
