@@ -5,6 +5,7 @@ using SocialMedia.Api.Responses;
 using SocialMedia.Core.DTOs;
 using SocialMedia.Core.Entities;
 using SocialMedia.Core.Interfaces;
+using SocialMedia.Core.QueryFilters;
 using SocialMedia.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
@@ -27,11 +28,13 @@ namespace SocialMedia.Api.Controllers
         }
 
         //Método GET
+        //Se marca el objeto recibido como parámetro con "FromQuery" para indicar que se va a mapear desde la Url
+        //si no se marca al utilizar ApiController se interpretará que se va a mapear contra el body
         [HttpGet]
-        public ActionResult<IEnumerable<PostDto>> GetPosts()
+        public ActionResult<IEnumerable<PostDto>> GetPosts([FromQuery]PostQueryFilter filters)
         {
             //Obtener listado de posts
-            var posts = _postService.GetPosts();
+            var posts = _postService.GetPosts(filters);
             //Hacer mapeo de entidad Post a PostDto
             var postsDto = _mapper.Map<IEnumerable<PostDto>>(posts);
             //Adicionar respuesta a objeto a devolver

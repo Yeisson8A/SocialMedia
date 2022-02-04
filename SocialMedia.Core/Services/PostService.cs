@@ -1,6 +1,7 @@
 ﻿using SocialMedia.Core.Entities;
 using SocialMedia.Core.Exceptions;
 using SocialMedia.Core.Interfaces;
+using SocialMedia.Core.QueryFilters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,10 +46,34 @@ namespace SocialMedia.Core.Services
             return await _unitOfWork.PostRepository.GetById(id);
         }
 
-        public IEnumerable<Post> GetPosts()
+        public IEnumerable<Post> GetPosts(PostQueryFilter filters)
         {
             //Llamar al repositorio de post
-            return _unitOfWork.PostRepository.GetAll();
+            var posts = _unitOfWork.PostRepository.GetAll();
+
+            //Validar si se envió un filtro por usuario
+            if (filters.UserId != null)
+            {
+                //Filtrar el listado de post obtenido por usuario
+                posts = posts.Where(x => x.UserId == filters.UserId);
+            }
+
+            //Validar si se envió un filtro por fecha
+            if (filters.Date != null)
+            {
+                //Filtrar el listado de post obtenido por fecha
+                posts = posts.Where(x => x.Date.ToShortDateString() == filters.Date?.ToShortDateString());
+            }
+
+            //Validar si se envió un filtro por descripción
+            if (filters.Description != null)
+            {
+                //Filtrar el listado de post obtenido por descripción
+                posts = posts.Where(x => x.Description.ToLower().Contains(filters.Description.ToLower()));
+            }
+
+            //Retornar listado de post
+            return posts;
         }
 
         public async Task<bool> InsertPost(Post post)

@@ -1,4 +1,5 @@
 ﻿using SocialMedia.Core.Entities;
+using SocialMedia.Core.QueryFilters;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -7,7 +8,7 @@ namespace SocialMedia.Core.Interfaces
     public interface IPostService
     {
         //Método para obtener listado de todos los posts
-        IEnumerable<Post> GetPosts();
+        IEnumerable<Post> GetPosts(PostQueryFilter filters);
         //Método para obtener un post especifico por Id
         Task<Post> GetPost(int id);
         //Método para insertar un nuevo post
