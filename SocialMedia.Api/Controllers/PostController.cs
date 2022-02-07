@@ -1,15 +1,12 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using SocialMedia.Api.Responses;
 using SocialMedia.Core.DTOs;
 using SocialMedia.Core.Entities;
 using SocialMedia.Core.Interfaces;
 using SocialMedia.Core.QueryFilters;
-using SocialMedia.Infrastructure.Repositories;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SocialMedia.Api.Controllers
@@ -39,6 +36,21 @@ namespace SocialMedia.Api.Controllers
             var postsDto = _mapper.Map<IEnumerable<PostDto>>(posts);
             //Adicionar respuesta a objeto a devolver
             var response = new ApiResponse<IEnumerable<PostDto>>(postsDto);
+
+            //Objeto con los valores de paginación
+            var metadata = new
+            {
+                posts.TotalCount,
+                posts.PageSize,
+                posts.CurrentPage,
+                posts.TotalPages,
+                posts.HasNextPage,
+                posts.HasPreviousPage
+            };
+
+            //Agregar a los headers del response un tag con los valores de paginación
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+            //Devolver respuesta
             return Ok(response);
         }
 

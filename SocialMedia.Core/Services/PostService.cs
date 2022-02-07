@@ -1,4 +1,5 @@
-﻿using SocialMedia.Core.Entities;
+﻿using SocialMedia.Core.CustomEntities;
+using SocialMedia.Core.Entities;
 using SocialMedia.Core.Exceptions;
 using SocialMedia.Core.Interfaces;
 using SocialMedia.Core.QueryFilters;
@@ -46,7 +47,7 @@ namespace SocialMedia.Core.Services
             return await _unitOfWork.PostRepository.GetById(id);
         }
 
-        public IEnumerable<Post> GetPosts(PostQueryFilter filters)
+        public PagedList<Post> GetPosts(PostQueryFilter filters)
         {
             //Llamar al repositorio de post
             var posts = _unitOfWork.PostRepository.GetAll();
@@ -72,8 +73,11 @@ namespace SocialMedia.Core.Services
                 posts = posts.Where(x => x.Description.ToLower().Contains(filters.Description.ToLower()));
             }
 
-            //Retornar listado de post
-            return posts;
+            //Llamar a entidad PagedList para paginar el listado de post obtenido
+            var pagedPost = PagedList<Post>.Create(posts, filters.PageNumber, filters.PageSize);
+
+            //Retornar listado de post paginados
+            return pagedPost;
         }
 
         public async Task<bool> InsertPost(Post post)

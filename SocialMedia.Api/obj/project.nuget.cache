@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DNMw5pAU7L2HzI8XDKJJXDn5vBoylzGlZbo1+GD8pLst3dac1jZ7YkOS7ohZ+OLUW+BRKVjs5NMIDUVH6EFu7Q==",
+  "dgSpecHash": "u6oOU/hkAHQMCSnu64r2k3eBRzuNYAkxpqyWTHcEbzxpSUbFoQKFYlTPdPgGlVnhfkybvmaJGrmqQ6XoOZW+qA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Yeisson\\source\\repos\\SocialMedia\\SocialMedia.Api\\SocialMedia.Api.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,7 @@
     "C:\\Users\\Yeisson\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Yeisson\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\Yeisson\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\Yeisson\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Yeisson\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Yeisson\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Yeisson\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

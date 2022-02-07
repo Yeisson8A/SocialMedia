@@ -134,3 +134,4 @@ C:\Users\Yeisson\source\repos\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.
 C:\Users\Yeisson\source\repos\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.dll
 C:\Users\Yeisson\source\repos\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.pdb
 C:\Users\Yeisson\source\repos\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.genruntimeconfig.cache
+C:\Users\Yeisson\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
