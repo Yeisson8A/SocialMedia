@@ -1,16 +1,20 @@
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using SocialMedia.Core.CustomEntities;
 using SocialMedia.Core.Interfaces;
 using SocialMedia.Core.Services;
 using SocialMedia.Infrastructure.Data;
 using SocialMedia.Infrastructure.Filters;
+using SocialMedia.Infrastructure.Interfaces;
 using SocialMedia.Infrastructure.Repositories;
+using SocialMedia.Infrastructure.Services;
 using System;
 
 namespace SocialMedia.Api
@@ -40,6 +44,22 @@ namespace SocialMedia.Api
             //Usar una interfaz y una implementación generica
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            //Se agrega interfaz e implementación para generar la URL base a utilizar en la navegación (Paginación)
+            services.AddSingleton<IUriService>(provider =>
+            {
+                //Acceder al contexto del Html según el servicio solicitado
+                var accesor = provider.GetRequiredService<IHttpContextAccessor>();
+                //Acceder al request recibido
+                var request = accesor.HttpContext.Request;
+                //Construir URL base utilizando:
+                //+ Scheme = Http o Https
+                //+ Host
+                var absoluteUri = string.Concat(request.Scheme, "://", request.Host.ToUriComponent());
+                //Devolver nueva instancia de la clase UriService con la URL base
+                return new UriService(absoluteUri);
+            });
+            //Setear valores de configuración appsettings en una clase
+            services.Configure<PaginationOptions>(Configuration.GetSection("Pagination"));
             //Conexión a la base de datos
             services.AddDbContext<SocialMediaContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("SocialMedia"))
@@ -56,6 +76,10 @@ namespace SocialMedia.Api
             {
                 //Agregar filtro para el manejo global de las excepciones de negocio
                 options.Filters.Add<GlobalExceptionFilter>();
+            }).AddNewtonsoftJson(options =>
+            {
+                //Indicar que a la hora de serializar a JSON las propiedades que esten nulas no se van a mostrar
+                options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
             });
         }
 

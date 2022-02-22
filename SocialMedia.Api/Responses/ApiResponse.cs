@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocialMedia.Core.CustomEntities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,5 +14,7 @@ namespace SocialMedia.Api.Responses
         }
 
         public T Data { get; set; }
+        //Propiedad para los datos de paginación
+        public Metadata Meta { get; set; }
     }
 }

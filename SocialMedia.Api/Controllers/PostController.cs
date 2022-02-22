@@ -2,10 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SocialMedia.Api.Responses;
+using SocialMedia.Core.CustomEntities;
 using SocialMedia.Core.DTOs;
 using SocialMedia.Core.Entities;
 using SocialMedia.Core.Interfaces;
 using SocialMedia.Core.QueryFilters;
+using SocialMedia.Infrastructure.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -17,35 +19,47 @@ namespace SocialMedia.Api.Controllers
     {
         private readonly IPostService _postService;
         private readonly IMapper _mapper;
+        private readonly IUriService _uriService;
 
-        public PostController(IPostService postService, IMapper mapper)
+        public PostController(IPostService postService, IMapper mapper, IUriService uriService)
         {
             _postService = postService;
             _mapper = mapper;
+            _uriService = uriService;
         }
 
         //Método GET
         //Se marca el objeto recibido como parámetro con "FromQuery" para indicar que se va a mapear desde la Url
         //si no se marca al utilizar ApiController se interpretará que se va a mapear contra el body
-        [HttpGet]
-        public ActionResult<IEnumerable<PostDto>> GetPosts([FromQuery]PostQueryFilter filters)
+        //Se usa nameof para obtener como nombre del servicio, el nombre del método
+        [HttpGet(Name = nameof(GetPosts))]
+        public ActionResult<IEnumerable<PostDto>> GetPosts([FromQuery] PostQueryFilter filters)
         {
             //Obtener listado de posts
             var posts = _postService.GetPosts(filters);
             //Hacer mapeo de entidad Post a PostDto
             var postsDto = _mapper.Map<IEnumerable<PostDto>>(posts);
-            //Adicionar respuesta a objeto a devolver
-            var response = new ApiResponse<IEnumerable<PostDto>>(postsDto);
 
             //Objeto con los valores de paginación
-            var metadata = new
+            var metadata = new Metadata
             {
-                posts.TotalCount,
-                posts.PageSize,
-                posts.CurrentPage,
-                posts.TotalPages,
-                posts.HasNextPage,
-                posts.HasPreviousPage
+                TotalCount = posts.TotalCount,
+                PageSize = posts.PageSize,
+                CurrentPage = posts.CurrentPage,
+                TotalPages = posts.TotalPages,
+                HasNextPage = posts.HasNextPage,
+                HasPreviousPage = posts.HasPreviousPage,
+                //Se usa Url RouteUrl para que el framework derive la ruta del servicio
+                NextPageUrl = _uriService.GetPostPaginationUri(filters, Url.RouteUrl(nameof(GetPosts))).ToString(),
+                //Se usa Url RouteUrl para que el framework derive la ruta del servicio
+                PreviousPageUrl = _uriService.GetPostPaginationUri(filters, Url.RouteUrl(nameof(GetPosts))).ToString()
+            };
+
+            //Adicionar respuesta a objeto a devolver,
+            //así como objeto con la información de paginación
+            var response = new ApiResponse<IEnumerable<PostDto>>(postsDto)
+            {
+                Meta = metadata
             };
 
             //Agregar a los headers del response un tag con los valores de paginación
